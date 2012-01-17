@@ -103,7 +103,9 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'skene.urls'
 
-TEMPLATE_DIRS = (os.getcwd() + '/templates',)
+PROJECT_PATH = os.path.abspath(os.path.split(__file__)[0])
+
+TEMPLATE_DIRS = (os.path.join(PROJECT_PATH, "templates"),)
 
 INSTALLED_APPS = (
     'django.contrib.auth',

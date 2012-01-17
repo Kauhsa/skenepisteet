@@ -3,6 +3,7 @@
 from django.contrib.auth import login, logout
 from django.db.models import Sum
 from django.http import HttpResponse
+from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.utils import simplejson
 from skene.skenepisteet.forms import SuggestionForm, LoginForm

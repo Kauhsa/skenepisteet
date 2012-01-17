@@ -1,0 +1,44 @@
+<script type="text/javascript">
+    $(document).ready(function() {
+        $(".modal").colorbox(modalOptions);
+        $('.messages').slideDown();
+        $('.pjax').pjax(pjaxOptions);
+    });
+</script>
+
+{% if messages %}
+    <div class="span-23 prepend-1 last">
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endif %}
+
+<div class="span-11 prepend-1 colborder">
+    <h2>Ranking:</h2>
+    <div class="scener-list list">
+        {% for scener in sceners %}
+            <div class="scener">
+                <a class="modal" href="{% url skenepisteet.views.info_popup scener_id=scener.id %}"><span class="name">{{ scener.name }}</span></a>
+                <span class="points">{{ scener.points|stringformat:"+d" }}</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+<div class="span-10 last">
+    <h2>Viimeisimmät:</h2>
+    <div class="activity-list list">
+        {% for activity_event in activities %}
+            <div class="activity">
+                <div class="title">
+                    <span class="points">{{ activity_event.points|stringformat:"+d" }}</span>
+                    <span class="scener">{{ activity_event.scener.name }}</span>
+                </div>
+                <blockquote class="description">{{ activity_event.description|linebreaks }}</blockquote>
+            </div>
+        {% endfor %}
+    </div>
+</div>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %};SKENEPISTEET{% endblock %}</title>
+
+    <!-- Google Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Ubuntu:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+
+    <!-- BlueprintCSS -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/screen.css" type="text/css" media="screen, projection">
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/print.css" type="text/css" media="print">
+        <!--[if lt IE 8]>
+            <link rel="stylesheet" href="{{ STATIC_URL }}css/blueprint/ie.css" type="text/css" media="screen, projection">
+        <![endif]-->
+
+    <!-- jQuery -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+
+    <!-- PJAX -->
+        <script src="{{ STATIC_URL }}js/jquery.pjax.js"></script>
+
+    <!-- Colorbox -->
+        <link rel="stylesheet" href="{{ STATIC_URL }}colorbox/colorbox.css" type="text/css" media="screen" />
+        <script type="text/javascript" src="{{ STATIC_URL }}colorbox/jquery.colorbox-min.js"></script>
+
+    <!-- Project CSS & JS-->
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/style.css" type="text/css" media="all">
+    <script src="{{ STATIC_URL }}js/skenepisteet.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            {% block header %}
+                <h1><a class="modal" href="{% url skenepisteet.views.login_popup %}">;</a>SKENEPISTEET</h1>
+            {% endblock %}
+        </header>
+        <div id="content">
+        {% block content %}
+        {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

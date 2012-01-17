@@ -1,0 +1,210 @@
+body, html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Ubuntu', sans-serif;
+    /* background: url('../images/bg_image.jpg') no-repeat fixed center; */
+    font-size: 16px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+input {
+    font-family: 'Ubuntu', sans-serif;
+    padding: 5px;
+}
+
+textarea {
+    font-family: 'Consolas', monospace;
+}
+
+.container {
+    height: 100%;
+    background-color: white;
+    box-shadow: 0 0 15px black;
+}
+
+header h1 {
+    text-align: center;
+    font-family: 'Calibri', 'Trebuchet MS', 'Ubuntu', sans-serif;
+    font-size: 140px;
+    margin: 0 0 0.2em 0;
+    padding-top: 0.2em;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+    -ms-transition: all 0.5s ease-in-out;
+    transition: all 0.5s ease-in-out;
+}
+
+header h1 a {
+    color: inherit;
+}
+
+header h1 a:hover {
+    color: inherit;
+}
+
+header h1 a:visited {
+    color: inherit;
+}
+
+header h1:hover {
+    color: white;
+    text-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+}
+
+h2 {
+    font-size: 20px;
+}
+
+.list {
+
+}
+
+.list > * {
+    padding: 0.7em 1em;
+}
+
+.list > *:nth-child(odd) {
+    background-image: linear-gradient(bottom, rgb(219,219,219) 0%, rgb(237,237,237) 100%);
+    background-image: -o-linear-gradient(bottom, rgb(219,219,219) 0%, rgb(237,237,237) 100%);
+    background-image: -moz-linear-gradient(bottom, rgb(219,219,219) 0%, rgb(237,237,237) 100%);
+    background-image: -webkit-linear-gradient(bottom, rgb(219,219,219) 0%, rgb(237,237,237) 100%);
+    background-image: -ms-linear-gradient(bottom, rgb(219,219,219) 0%, rgb(237,237,237) 100%);
+
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        color-stop(0, rgb(219,219,219)),
+        color-stop(1, rgb(237,237,237))
+    );
+
+    border-radius: 5px;
+}
+
+/* Scener list */
+
+.scener-list .scener .name {
+    font-weight: bold;
+}
+
+.scener-list .scener .points {
+    display: inline-block;
+    float: right;
+}
+
+/* Activity list */
+
+.activity-list .activity .scener, .activity-list .activity .points {
+    font-weight: bold;
+}
+
+.activity-list .description {
+    margin: 0.5em 0.5em 0 0.5em;
+}
+
+/* Forms */
+
+label {
+    font-weight: bold;
+    display: block;
+}
+
+.errorlist {
+    color: red;
+    margin: 0;
+    font-size: 0.8em;
+    list-style-type: square;
+    margin-top: 2px;
+}
+
+.helptext {
+    font-style: italic;
+    font-size: 0.8em;
+    display: inline-block;
+    color: #666;
+    margin-bottom: 1em;
+}
+
+/* Popup */
+
+#cboxLoadedContent {
+    padding: 15px;
+    margin-bottom: 0;
+}
+
+#cboxClose {
+    display: none !important;
+}
+
+.popup-title .right {
+    display: inline-block;
+    float: right;
+    color: #666;
+}
+
+/* Buttons */
+
+.awesome, .awesome:visited {
+    border: 0;
+    margin: 0;
+    background: #222 url(../images/alert-overlay.png) repeat-x;
+    display: inline-block;
+    padding: 5px 10px 6px;
+    color: #fff;
+    text-decoration: none;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.25);
+    border-bottom: 1px solid rgba(0,0,0,0.25);
+    position: relative;
+    cursor: pointer;
+}
+
+.awesome:hover {
+    background-color: #111;
+    color: #fff;
+}
+
+.awesome:active {
+    top: 1px;
+}
+
+.small.awesome, .small.awesome:visited {
+    font-size: 11px;
+}
+
+.awesome, .awesome:visited,
+.medium.awesome, .medium.awesome:visited {
+    font-size: 13px;
+    font-weight: bold;
+    line-height: 1;
+    text-shadow: 0 -1px 1px rgba(0, 0, 0, 0.25);
+}
+
+.large.awesome, .large.awesome:visited {
+    font-size: 14px;
+    padding: 8px 14px 9px;
+}
+
+.messages {
+    list-style-type: square;
+    display: none;
+}
+
+.messages .info {
+    color: green;
+    font-weight: bold;
+}

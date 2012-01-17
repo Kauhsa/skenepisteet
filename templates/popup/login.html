@@ -1,0 +1,9 @@
+<h1 class="popup-title">Kirjaudu</h1>
+
+<form method="POST" action="{% url skenepisteet.views.login_popup %}" class="modal-form">
+    {% csrf_token %}
+    <div>
+    {{ form }}
+    </div>
+    <input type="submit" class="awesome" style="float: right" value="Kirjaudu">
+</form>

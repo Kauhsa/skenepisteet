@@ -1,4 +1,5 @@
 # Django settings for skenepisteetdjango project.
+from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 import os
 
 DEBUG = True
@@ -127,13 +128,7 @@ INSTALLED_APPS = (
 )
 
 
-TEMPLATE_CONTEXT_PROCESSORS = (
-    # default template context processors
-    'django.core.context_processors.auth',
-    'django.core.context_processors.debug',
-    'django.core.context_processors.i18n',
-    'django.core.context_processors.media',
-
+TEMPLATE_CONTEXT_PROCESSORS += (
     # required by django-admin-tools
     'django.core.context_processors.request',
 )

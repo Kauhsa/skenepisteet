@@ -1,10 +1,8 @@
 # encoding: utf-8
 from operator import attrgetter
 
-from django.contrib.auth import login, logout
 from django.db.models import Sum
 from django.http import HttpResponse
-from django.shortcuts import redirect
 from django.template.response import TemplateResponse
 from django.utils import simplejson
 from skene.skenepisteet.forms import SuggestionForm, LoginForm
@@ -42,21 +40,3 @@ def info_popup(request, scener_id=None):
         suggestion_form = SuggestionForm()
 
     return TemplateResponse(request, "popup/user_suggest.html", {"scener": scener, "form": suggestion_form})
-
-def login_popup(request):
-    if request.method == "POST":
-        login_form = LoginForm(request.POST)
-        if login_form.is_valid():
-            user = login_form.cleaned_data.get('user')
-            login(request, user)
-            messages.info(request, u'Sisäänkirjautuminen onnistui.')
-            return HttpResponse(simplejson.dumps({'redirect': '/', 'pjax': False}), mimetype='application/json')
-    else:
-        login_form = LoginForm()
-
-    return TemplateResponse(request, "popup/login.html", {"form": login_form})
-
-def logout_view(request):
-    logout(request)
-    messages.info(request, 'Kirjauduit ulos onnistuneesti.')
-    return redirect('/')

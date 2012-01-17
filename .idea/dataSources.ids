@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?><component name="dataSourceStorage">
   <data-source source="LOCAL" name="Django default" product="SQLite" version="3.6.3" jdbc-version="2.1" driver-version="native" uuid="cb4b4587-3b6a-424e-89fe-51128cc626ab">
     <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
-    <jdbc-url>jdbc:sqlite:D:\Koodit\skenepisteetdjango\skene.db</jdbc-url>
+    <jdbc-url>jdbc:sqlite:D:\Koodit\skenepisteetdjango\skene\skene.db</jdbc-url>
     <libraries>
       <library>
         <url>file://$USER_HOME$/.PyCharm20/config/jdbc-drivers/zentus-sqlite-license.txt</url>
@@ -10,6 +10,20 @@
         <url>file://$USER_HOME$/.PyCharm20/config/jdbc-drivers/sqlitejdbc-v056.jar</url>
       </library>
     </libraries>
+    <table name="ADMIN_TOOLS_DASHBOARD_PREFERENCES" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="data" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="dashboard_id" sqlType="VARCHAR(100)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="ADMIN_TOOLS_MENU_BOOKMARK" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="user_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="url" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="title" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
     <table name="AUTH_GROUP" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
       <column name="name" sqlType="VARCHAR(80)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
@@ -90,17 +104,32 @@
       <column name="name" sqlType="VARCHAR(50)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
       <primary-key columns="id" />
     </table>
+    <table name="SKENEPISTEET_POINTSUGGESTION" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="scener_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="points" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="reason" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
     <table name="SKENEPISTEET_SCENEPOINTEVENT" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
-      <column name="award_date" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12" />
       <column name="points" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
       <column name="description" sqlType="TEXT" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="award_date" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12" />
       <column name="scener_id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="accepted" sqlType="BOOL" length="2000000000" precision="10" nullable="false" jdbcType="12" />
       <primary-key columns="id" />
     </table>
     <table name="SKENEPISTEET_SCENER" schema="" catalog="" type="TABLE">
       <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
       <column name="name" sqlType="VARCHAR(80)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <primary-key columns="id" />
+    </table>
+    <table name="SOUTH_MIGRATIONHISTORY" schema="" catalog="" type="TABLE">
+      <column name="id" sqlType="INTEGER" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="app_name" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="migration" sqlType="VARCHAR(255)" length="2000000000" precision="10" nullable="false" jdbcType="12" />
+      <column name="applied" sqlType="DATETIME" length="2000000000" precision="10" nullable="false" jdbcType="12" />
       <primary-key columns="id" />
     </table>
   </data-source>

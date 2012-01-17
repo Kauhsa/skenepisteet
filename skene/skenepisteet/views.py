@@ -1,6 +1,6 @@
 # encoding: utf-8
-from django.contrib.auth import login
 
+from django.contrib.auth import login, logout
 from django.db.models import Sum
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
@@ -44,3 +44,7 @@ def login_popup(request):
         login_form = LoginForm()
 
     return TemplateResponse(request, "popup/login.html", {"form": login_form})
+
+def logout_view(request):
+    logout(request)
+    return redirect('index')

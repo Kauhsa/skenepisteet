@@ -31,7 +31,11 @@
     <div class="container">
         <header>
             {% block header %}
-                <h1><a class="modal" href="{% url skenepisteet.views.login_popup %}">;</a>SKENEPISTEET</h1>
+                {% if user.is_authenticated %}
+                    <h1><a class="pjax" href="{% url skenepisteet.views.logout_view %}">;</a>{{ user.username }}</h1>
+                {% else %}
+                    <h1><a class="modal" href="{% url skenepisteet.views.login_popup %}">;</a>SKENEPISTEET</h1>
+                {% endif %}
             {% endblock %}
         </header>
         <div id="content">

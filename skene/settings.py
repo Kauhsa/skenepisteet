@@ -108,6 +108,10 @@ PROJECT_PATH = os.path.abspath(os.path.split(__file__)[0])
 TEMPLATE_DIRS = (os.path.join(PROJECT_PATH, "templates"),)
 
 INSTALLED_APPS = (
+    'admin_tools',
+    'admin_tools.theming',
+    'admin_tools.menu',
+    'admin_tools.dashboard',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -119,6 +123,18 @@ INSTALLED_APPS = (
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
     'skene.skenepisteet',
+)
+
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    # default template context processors
+    'django.core.context_processors.auth',
+    'django.core.context_processors.debug',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.media',
+
+    # required by django-admin-tools
+    'django.core.context_processors.request',
 )
 
 # A sample logging configuration. The only tangible logging

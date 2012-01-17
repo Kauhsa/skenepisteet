@@ -22,7 +22,7 @@ def index(request):
             scener.points = 0
     sceners = sorted(sceners, key=attrgetter('points'), reverse=True)
 
-    activity = ScenePointEvent.objects.filter(accepted=True).order_by('award_date')[:5]
+    activity = ScenePointEvent.objects.filter(accepted=True).order_by('-award_date')[:5]
     return TemplateResponse(request, "index.html", {"sceners": sceners, "activities": activity})
 
 def info_popup(request, scener_id=None):

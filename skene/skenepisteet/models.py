@@ -18,11 +18,3 @@ class ScenePointEvent(models.Model):
 
     def __unicode__(self):
         return self.description
-
-class PointSuggestion(models.Model):
-    scener = models.ForeignKey(Scener)
-    points = models.IntegerField(help_text=u"Anna negatiivinen luku, jos haluat vähentää henkilöltä pisteitä.", verbose_name=u"Pisteet")
-    reason = models.TextField(help_text=u"Kirjoita tähän perustelut, miksi henkilön pisteitä pitäisi muuttaa.", verbose_name=u"Perustelut")
-
-    def __unicode__(self):
-        return self.reason

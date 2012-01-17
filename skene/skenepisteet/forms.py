@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
 from django.forms.fields import CharField
 from django.forms.widgets import PasswordInput
-from skene.skenepisteet.models import PointSuggestion, ScenePointEvent
+from skene.skenepisteet.models import ScenePointEvent
 
 class LoginForm(forms.Form):
     username = CharField(label="Käyttäjätunnus")

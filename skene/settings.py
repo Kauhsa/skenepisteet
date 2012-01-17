@@ -116,7 +116,7 @@ INSTALLED_APPS = (
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
-    'skenepisteetdjango.skenepisteet',
+    'skenepisteetdjango.skene.skenepisteet',
 )
 
 # A sample logging configuration. The only tangible logging

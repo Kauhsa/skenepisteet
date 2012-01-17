@@ -1,5 +1,5 @@
 from django.conf.urls.defaults import *
-from skenepisteet.views import index, info_popup, login_popup
+from skene.skenepisteet.views import index, info_popup, login_popup
 
 urlpatterns = patterns('',
     url(r'^$', index),

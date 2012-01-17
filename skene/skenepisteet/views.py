@@ -5,8 +5,8 @@ from django.db.models import Sum
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
 from django.utils import simplejson
-from skenepisteet.forms import SuggestionForm, LoginForm
-from skenepisteet.models import Scener, ScenePointEvent
+from skene.skenepisteet.forms import SuggestionForm, LoginForm
+from skene.skenepisteet.models import Scener, ScenePointEvent
 from djpjax import pjax
 from django.contrib import messages
 

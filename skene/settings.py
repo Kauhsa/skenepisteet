@@ -101,7 +101,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
 )
 
-ROOT_URLCONF = 'skenepisteetdjango.urls'
+ROOT_URLCONF = 'skene.urls'
 
 TEMPLATE_DIRS = (os.getcwd() + '/templates',)
 

@@ -24,11 +24,7 @@ function initModalForms() {
             $(this).serialize(),
             function (data) {
                 if (data.redirect) {
-                    if (data.pjax) {
-                        $.pjax($.extend({url: data.redirect}, pjaxOptions));
-                    } else {
-                        window.document.location = data.redirect;
-                    }
+                    $.pjax($.extend({url: data.redirect}, pjaxOptions));
                     $.colorbox.close();
                 } else {
                     $.colorbox($.extend({html: data}, modalOptions));

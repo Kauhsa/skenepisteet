@@ -40,7 +40,7 @@ def login_popup(request):
             user = login_form.cleaned_data.get('user')
             login(request, user)
             messages.info(request, u'Sisäänkirjautuminen onnistui.')
-            return HttpResponse(simplejson.dumps({'redirect': '/'}), mimetype='application/json')
+            return HttpResponse(simplejson.dumps({'redirect': '/', 'pjax': False}), mimetype='application/json')
     else:
         login_form = LoginForm()
 
@@ -48,4 +48,5 @@ def login_popup(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('index')
+    messages.info(request, 'Kirjauduit ulos onnistuneesti.')
+    return redirect('/')

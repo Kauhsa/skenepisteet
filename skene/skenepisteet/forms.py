@@ -5,7 +5,7 @@ from django.contrib.auth import authenticate
 from django.core.exceptions import ValidationError
 from django.forms.fields import CharField
 from django.forms.widgets import PasswordInput
-from skene.skenepisteet.models import PointSuggestion
+from skene.skenepisteet.models import PointSuggestion, ScenePointEvent
 
 class LoginForm(forms.Form):
     username = CharField(label="Käyttäjätunnus")
@@ -36,5 +36,5 @@ class LoginForm(forms.Form):
 
 class SuggestionForm(forms.ModelForm):
     class Meta:
-        model = PointSuggestion
-        exclude = ("scener", )
+        model = ScenePointEvent
+        exclude = ("scener", "accepted", "award_date")

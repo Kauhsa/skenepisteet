@@ -1,4 +1,5 @@
 # encoding: utf-8
+from operator import attrgetter
 
 from django.contrib.auth import login, logout
 from django.db.models import Sum
@@ -13,7 +14,15 @@ from django.contrib import messages
 
 @pjax()
 def index(request):
-    sceners = Scener.objects.annotate(points=Sum('scenepointevent__points')).order_by('-points')
+    # sorting manually (not with order_by) because it fails if there is no events on scener
+    # as SQL backend doesn't treat NULL as 0 when sorting - we also need to manually change
+    # any None in points to 0 to manual sorting to work
+    sceners = list(Scener.objects.annotate(points=Sum('scenepointevent__points')))
+    for scener in sceners:
+        if not scener.points:
+            scener.points = 0
+    sceners = sorted(sceners, key=attrgetter('points'), reverse=True)
+
     activity = ScenePointEvent.objects.order_by('-award_date')[:5]
     return TemplateResponse(request, "index.html", {"sceners": sceners, "activities": activity})
 

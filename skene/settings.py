@@ -1,7 +1,5 @@
 # Django settings for skenepisteetdjango project.
 import os
-import sys
-print sys.path
 
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG

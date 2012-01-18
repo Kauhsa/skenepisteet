@@ -14,7 +14,7 @@ from django.contrib import messages
 def index(request):
     # sorting manually (not with order_by) because it fails if there is no events on scener
     # as SQL backend doesn't treat NULL as 0 when sorting - we also need to manually change
-    # any None in points to 0 to manual sorting to work
+    # any None scener.points to 0 for manual sorting to work
     sceners = Scener.objects.filter(scenepointevent__accepted=True).annotate(points=Sum('scenepointevent__points'))
     sceners = list(sceners)
     for scener in sceners:

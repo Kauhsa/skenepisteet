@@ -12,14 +12,22 @@ from django.contrib import messages
 
 @pjax()
 def index(request):
-    # sorting manually (not with order_by) because it fails if there is no events on scener
-    # as SQL backend doesn't treat NULL as 0 when sorting - we also need to manually change
-    # any None scener.points to 0 for manual sorting to work
-    sceners = Scener.objects.filter(scenepointevent__accepted=True).annotate(points=Sum('scenepointevent__points'))
-    sceners = list(sceners)
+    # TODO: Check how many queries this really does
+    # get sceners with points - this returns only sceners that have any events associated on them, which is why we have
+    # to do this on two separate queries
+    scener_points = Scener.objects.filter(scenepointevent__accepted=True).annotate(points=Sum('scenepointevent__points'))
+
+    # get all sceners we want to show on front page
+    sceners = Scener.objects.all()
+
+    # add points to scener
     for scener in sceners:
-        if not scener.points:
+        if scener_points.filter(id = scener.id):
+            scener.points = scener_points.get(id = scener.id).points
+        else:
             scener.points = 0
+
+    # sort sceners according to their points
     sceners = sorted(sceners, key=attrgetter('points'), reverse=True)
 
     activity = ScenePointEvent.objects.filter(accepted=True).order_by('-award_date')[:5]

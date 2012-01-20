@@ -2,7 +2,7 @@
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 import os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
@@ -54,11 +54,13 @@ MEDIA_ROOT = ''
 # Examples: "http://media.lawrence.com/media/", "http://example.com/media/"
 MEDIA_URL = ''
 
+PROJECT_PATH = os.path.abspath(os.path.split(__file__)[0])
+
 # Absolute path to the directory static files should be collected to.
 # Don't put anything in this directory yourself; store your static files
 # in apps' "static/" subdirectories and in STATICFILES_DIRS.
 # Example: "/home/media/media.lawrence.com/static/"
-STATIC_ROOT = os.getcwd() + '/static/'
+STATIC_ROOT = 'static/'
 
 # URL prefix for static files.
 # Example: "http://media.lawrence.com/static/"
@@ -103,8 +105,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'skene.urls'
-
-PROJECT_PATH = os.path.abspath(os.path.split(__file__)[0])
 
 TEMPLATE_DIRS = (os.path.join(PROJECT_PATH, "templates"),)
 

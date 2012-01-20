@@ -1,6 +1,5 @@
 # encoding: utf-8
 from operator import attrgetter
-
 from django.db.models import Sum
 from django.http import HttpResponse
 from django.template.response import TemplateResponse
@@ -13,8 +12,8 @@ from django.contrib import messages
 @pjax()
 def index(request):
     # TODO: Check how many queries this really does
-    # get sceners with points - this returns only sceners that have any events associated on them, which is why we have
-    # to do this on two separate queries
+    # get sceners with points - this returns only sceners that have any events associated on them (inner join), which is
+    # why we have to do this on two separate queries
     scener_points = Scener.objects.filter(scenepointevent__accepted=True).annotate(points=Sum('scenepointevent__points'))
 
     # get all sceners we want to show on front page
@@ -31,6 +30,7 @@ def index(request):
     sceners = sorted(sceners, key=attrgetter('points'), reverse=True)
 
     activity = ScenePointEvent.objects.filter(accepted=True).order_by('-award_date')[:5]
+
     return TemplateResponse(request, "index.html", {"sceners": sceners, "activities": activity})
 
 def info_popup(request, scener_id=None):

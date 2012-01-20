@@ -34,7 +34,11 @@ def index(request):
     return TemplateResponse(request, "index.html", {"sceners": sceners, "activities": activity})
 
 def info_popup(request, scener_id=None):
-    scener = Scener.objects.filter(scenepointevent__accepted=True).annotate(points=Sum('scenepointevent__points')).get(id=scener_id)
+    scener = Scener.objects.get(id=scener_id)
+    scener.points = ScenePointEvent.objects.filter(id=scener_id, accepted=True).aggregate(points = Sum('points'))['points']
+
+    if not scener.points:
+        scener.points = 0
 
     if request.method == "POST":
         suggestion_form = SuggestionForm(request.POST)

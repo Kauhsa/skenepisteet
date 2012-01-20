@@ -1,7 +1,10 @@
 from django.conf.urls.defaults import *
 
 # Uncomment the next two lines to enable the admin:
+from django.conf.urls.static import static
 from django.contrib import admin
+from skene import settings
+
 admin.autodiscover()
 
 urlpatterns = patterns('',

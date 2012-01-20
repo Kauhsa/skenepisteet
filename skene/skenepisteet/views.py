@@ -35,7 +35,7 @@ def index(request):
 
 def info_popup(request, scener_id=None):
     scener = Scener.objects.get(id=scener_id)
-    scener.points = ScenePointEvent.objects.filter(scener_id=scener_id, accepted=True).aggregate(points = Sum('points'))['points']
+    scener.points = ScenePointEvent.objects.filter(scener=scener, accepted=True).aggregate(points = Sum('points'))['points']
 
     if not scener.points:
         scener.points = 0

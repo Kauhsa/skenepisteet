@@ -2,7 +2,7 @@
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS
 import os
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (

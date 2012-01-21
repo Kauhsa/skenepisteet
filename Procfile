@@ -1,1 +1,1 @@
-web: python skene/manage.py runserver 0.0.0.0:28587 --noreload --insecure
+web: python skene/manage.py runserver 0.0.0.0:$PORT --noreload --insecure

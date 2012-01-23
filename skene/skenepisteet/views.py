@@ -29,7 +29,7 @@ def index(request):
     # sort sceners according to their points
     sceners = sorted(sceners, key=attrgetter('points'), reverse=True)
 
-    activity = ScenePointEvent.objects.filter(accepted=True).order_by('-award_date')[:5]
+    activity = ScenePointEvent.objects.filter(accepted=True).order_by('-award_date')[:20]
 
     return TemplateResponse(request, "index.html", {"sceners": sceners, "activities": activity})
 

@@ -35,4 +35,5 @@ function initModalForms() {
         return false; // prevent normal form submit
     });
 
+    $(".modal").colorbox(modalOptions);
 }

@@ -1,6 +1,6 @@
 <h1 class="popup-title">{{ scener.name }} <span class="right">{{ scener.points|stringformat:"+d" }}</span></h1>
 
-<p>SPEED DISCO Vol. 2</p>
+<p></p><a class="modal" href="{% url skenepisteet.views.history_popup scener_id=scener.id %}">Katso henkilön historiaa.</a></p>
 
 <form method="POST" action="{% url skenepisteet.views.info_popup scener_id=scener.id %}" class="modal-form">
     {% csrf_token %}

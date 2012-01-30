@@ -52,3 +52,13 @@ def info_popup(request, scener_id=None):
         suggestion_form = SuggestionForm()
 
     return TemplateResponse(request, "popup/user_suggest.html", {"scener": scener, "form": suggestion_form})
+
+def history_popup(request, scener_id=None):
+    scener = Scener.objects.get(id=scener_id)
+    scener.points = ScenePointEvent.objects.filter(scener=scener, accepted=True).aggregate(points = Sum('points'))['points']
+
+    if not scener.points:
+        scener.points = 0
+
+    events = ScenePointEvent.objects.filter(scener=scener, accepted=True).order_by('-award_date')
+    return TemplateResponse(request, "popup/user_history.html", {"scener": scener, "events": events})

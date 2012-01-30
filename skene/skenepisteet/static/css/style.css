@@ -152,6 +152,7 @@ label {
     display: inline-block;
     float: right;
     color: #666;
+    margin-left: 20px;
 }
 
 /* Buttons */
@@ -200,6 +201,8 @@ label {
     padding: 8px 14px 9px;
 }
 
+/* Messages */
+
 .messages {
     list-style-type: square;
     display: none;
@@ -208,4 +211,9 @@ label {
 .messages .info {
     color: green;
     font-weight: bold;
+}
+
+.history-container {
+    overflow-y: auto;
+    max-height: 500px;
 }

@@ -1,0 +1,15 @@
+<h1 class="popup-title">{{ scener.name }} <span class="right">{{ scener.points|stringformat:"+d" }}</span></h1>
+
+<div class="history-container">
+    <div class="activity-list list">
+        {% for event in events %}
+            <div class="activity">
+                <div class="title">
+                    <span class="points">{{ event.points|stringformat:"+d" }}</span>
+                    <span class="scener">{{ event.scener.name }}</span>
+                </div>
+                <blockquote class="description">{{ event.description|linebreaks }}</blockquote>
+            </div>
+        {% endfor %}
+    </div>
+</div>
